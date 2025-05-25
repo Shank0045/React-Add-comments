@@ -8,7 +8,7 @@ const App=()=>{
 
   const repVal=useRef(null)
 
-const [comments,setComments]=useState([]);
+const [comments,setComments]=useState([])  ;
 
 useEffect(() => {
 
