@@ -42,5 +42,4 @@ Feel free to explore, fork, or contribute!
 
 ---
 
-## 📁 Project Structure
 
