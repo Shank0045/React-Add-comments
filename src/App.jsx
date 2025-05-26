@@ -19,8 +19,13 @@ console.log(comments)
 
 let addComment=(e)=>{
    e.preventDefault();
-
    const val=comtVal.current.value
+   
+   if(val===" " || val===""){
+     alert("Add something ");
+     return;
+   }
+
 
 
    setComments((pre)=>{
@@ -66,32 +71,40 @@ setComments((pre)=>{
    
   return ( 
   
-    <div className="w-full min-h-[50vh] bg-yellow-400 text-black  "> 
-     <h1 className=" text-4xl font-[900] text-center">ADD COMMENTS  </h1>
+    <div className="w-full min-h-[100vh] flex items-center justify-center flex-col relative bg-black text-white  "> 
+    
+     <h1 className="text-5xl capitalize  font-[700] ">Instagram Post</h1>
+
+
+    <h2 className="uppercase  mt-[30px] text-2xl font-[500]"> posted by ufc </h2>
+    <p className="uppercase  mt-[30px] text-2xl font-[500]">Tony el Cucuy Ferguson 🐉 </p>
+     <img src="tony.avif" className="w-[800px] border-[10px] rounded-[50px] mt-[50px] h-[400px] " alt="tony" />
+
+     <h1 className=" text-4xl font-[900] underline py-[50px] text-center">ADD COMMENTS  </h1>
 
 
      { comments.map((item,index)=>{
-         return ( <div key={index}> <div  className=" w-[300px] h-[50px] flex items-center justify-between bg-pink-400 m-8  "> {item.text}  <button onClick={()=>{
+         return ( <div className="flex items-center flex-col justify-center" key={index}> <div  className=" w-[800px] h-[50px] rounded-[50px] flex items-center justify-between bg-gray-300 text-black text-2xl m-8  "> {item.text}  <button onClick={()=>{
            addReplay(index)
-         }} className="w-[100px] h-[50px] rounded-[50px] bg-black text-white text-l">replay</button> </div> 
+         }} className="w-[100px] h-[50px] rounded-[50px]  bg-black text-white text-l">Reply</button> </div> 
 
          {item.replay && <div> {item.replay.map((item,index)=>{
-           return <div key={index}> {item}</div>
+           return <div className="bg-white w-[300px] h-[50px] flex my-[20px] items-center justify-center text-black rounded-[50px]"  key={index}> <span className="text-l underline font-[800]">Sub Comment</span>  :    {item}</div>
          })}</div> }
 
            {item.isreplay && <form onSubmit={(e)=>{
              subReplay(e,index)
-           }}  > <input ref={repVal} type="text" className="w-[400px] h-[10vh] bg-red-800 rounded-[50px] "  /> <button className="w-[100px] h-[50px] rounded-[50px] bg-black text-white text-l">Add replay</button> </form> } </div>  )
+           }}  > <input ref={repVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 my-[50px] text-white text-[13px]" >Add Reply</button> </form> } </div>  )
      })}
  
 
 
 
 
-  <form onSubmit={(e)=>{
+  <form  onSubmit={(e)=>{
      addComment(e)
-  }} className="flex items-center justify-center" >
-     <input ref={comtVal} type="text" className="w-[400px] h-[10vh] bg-red-800 rounded-[50px] "  /> <button className="w-[100px] h-[50px] rounded-[50px] bg-black text-white text-l" >ADD Comment </button>  </form>
+  }} className="flex items-center sticky gap-[20px] justify-center" >
+     <input ref={comtVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 text-white text-[13px]" >ADD Comment </button>  </form>
     
         </div>
 
