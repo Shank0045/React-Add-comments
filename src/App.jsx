@@ -1,4 +1,3 @@
-import REACT from "react";
 
 import { useRef,useState,useEffect } from "react";
 
@@ -10,14 +9,12 @@ const App=()=>{
 
 const [comments,setComments]=useState([])  ;
 
-useEffect(() => {
 
-console.log(comments)
-
-}, [comments])
 
 
 let addComment=(e)=>{
+
+
    e.preventDefault();
    const val=comtVal.current.value
    
@@ -32,7 +29,7 @@ let addComment=(e)=>{
        return [...pre, {text:val,isreplay:false,replay:[]}]
    })
 
-comtVal.current.value=" "
+comtVal.current.value=""
 
 }
 
@@ -104,7 +101,7 @@ setComments((pre)=>{
   <form  onSubmit={(e)=>{
      addComment(e)
   }} className="flex items-center sticky gap-[20px] justify-center" >
-     <input ref={comtVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 text-white text-[13px]" >ADD Comment </button>  </form>
+     <input ref={comtVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button disabled={comments.length===5} className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 text-white text-[13px]" >ADD Comment </button>  </form>
     
         </div>
 
