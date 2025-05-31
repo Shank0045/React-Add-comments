@@ -31,7 +31,7 @@ let addComment=(e)=>{
 
 comtVal.current.value=""
 
-}
+} 
 
 let addReplay=(index)=>{
 
@@ -70,20 +70,20 @@ setComments((pre)=>{
   
     <div className="w-full min-h-[100vh] flex items-center justify-center flex-col relative bg-black text-white  "> 
     
-     <h1 className="text-5xl capitalize  font-[700] ">Instagram Post</h1>
+     <h1 className="text-5xl text-center uppercase p-[30px]   font-[700] ">Instagram Post</h1>
 
 
-    <h2 className="uppercase  mt-[30px] text-2xl font-[500]"> posted by ufc </h2>
-    <p className="uppercase  mt-[30px] text-2xl font-[500]">Tony el Cucuy Ferguson 🐉 </p>
-     <img src="tony.avif" className="w-[800px] border-[10px] rounded-[50px] mt-[50px] h-[400px] " alt="tony" />
+    <h2 className="uppercase   text-center md:mt-[30px] text-2xl font-[500]"> posted by ufc </h2>
+    <p className="uppercase  text-center p-[10px]  font-[900]  text-2xl ">Tony el Cucuy Ferguson 🐉 </p>
+     <img src="tony.avif" className="  w-[400px] object-cover md:w-[800px] border-[10px] rounded-[50px] mt-[50px] h-[400px] " alt="tony" />
 
      <h1 className=" text-4xl font-[900] underline py-[50px] text-center">ADD COMMENTS  </h1>
 
 
      { comments.map((item,index)=>{
-         return ( <div className="flex items-center flex-col justify-center" key={index}> <div  className=" w-[800px] h-[50px] rounded-[50px] flex items-center justify-between bg-gray-300 text-black text-2xl m-8  "> {item.text}  <button onClick={()=>{
+         return ( <div className="flex items-center flex-col justify-center" key={index}> <div  className="  w-[350px] md:w-[800px] h-[50px] rounded-[50px] flex items-center justify-between bg-gray-300 text-black text-2xl m-8  "> {item.text}  <button onClick={()=>{
            addReplay(index)
-         }} className="w-[100px] h-[50px] rounded-[50px]  bg-black text-white text-l">Reply</button> </div> 
+         }} className="w-[100px] h-[50px] rounded-[50px]  bg-black text-white text-[20px]">Reply</button> </div> 
 
          {item.replay && <div> {item.replay.map((item,index)=>{
            return <div className="bg-white w-[300px] h-[50px] flex my-[20px] items-center justify-center text-black rounded-[50px]"  key={index}> <span className="text-l underline font-[800]">Sub Comment</span>  :    {item}</div>
@@ -91,7 +91,7 @@ setComments((pre)=>{
 
            {item.isreplay && <form onSubmit={(e)=>{
              subReplay(e,index)
-           }}  > <input ref={repVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 my-[50px] text-white text-[13px]" >Add Reply</button> </form> } </div>  )
+           }}  > <input ref={repVal} type="text" className="  w-[250px]  md:w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 my-[50px] text-white text-[13px]" >Add Reply</button> </form> } </div>  )
      })}
  
 
@@ -100,8 +100,8 @@ setComments((pre)=>{
 
   <form  onSubmit={(e)=>{
      addComment(e)
-  }} className="flex items-center sticky gap-[20px] justify-center" >
-     <input ref={comtVal} type="text" className="w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button disabled={comments.length===5} className="w-[100px] h-[7vh] rounded-[50px] bg-gray-700 text-white text-[13px]" >ADD Comment </button>  </form>
+  }} className="flex flex-wrap md:flex-nowrap items-center sticky gap-[20px] justify-center" >
+     <input ref={comtVal} type="text" className=" w-[300px]   md:w-[400px] h-[7vh] bg-white text-black rounded-[50px] "  /> <button disabled={comments.length===5} className=" w-[150px]  font-[700] md:w-[100px] h-[7vh]  rounded-[50px] bg-gray-700 text-white text-[13px]" >ADD Comment </button>  </form>
     
         </div>
 
