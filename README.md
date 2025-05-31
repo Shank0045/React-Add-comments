@@ -15,11 +15,6 @@ I focused on making sure the core logic works well rather than perfecting the de
 
 ---
 
-📢 **Note:**  
-This app is currently optimized for **desktop only** 🖥️. It may not render correctly or be usable on mobile or small screens 📱❌. Responsive design might be added in future updates!
-
----
-
 Thanks for checking it out! 😊  
 Feel free to explore, fork, or contribute!
 
